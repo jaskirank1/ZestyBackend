@@ -9,7 +9,7 @@ import orderRouter from "./routes/orderRoute.js"
 
 // app config - we will initialize the app using express package 
 const app = express()
-const port = process.env.PORT || 4000
+const PORT = process.env.PORT || 4000
 
 // middleware 
 app.use(express.json())   // using this middleware whenever we get request from the front-end to backend that will be parsed using this json
@@ -31,6 +31,6 @@ app.get("/",(req,res)=>{
 })
 
 //run the express server - give port number and one callback function 
-app.listen(port,()=>{
-    console.log(`Server started on http://localhost:${port}`)
+app.listen(PORT,()=>{
+    console.log(`Server started on http://localhost:${PORT}`)
 })
