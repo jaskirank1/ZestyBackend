@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // Placing user order for frontend 
 const placeOrder = async (req,res)=>{
 
-    const frontend_url = "http://localhost:5174";
+    const frontend_url = "http://localhost:5173";
     
     try{
         const newOrder = new orderModel({
@@ -18,7 +18,7 @@ const placeOrder = async (req,res)=>{
         })
         await newOrder.save();     // it will save the order in db
         await userModel.findByIdAndUpdate(req.body.userId,{cartData:{}});
-        
+                
         const line_items = req.body.items.map((item)=>({
             price_data:{
                 currency:"inr",
@@ -51,7 +51,7 @@ const placeOrder = async (req,res)=>{
 
     }catch(error){
         console.log(error);
-        res.json({success:false,message:"Error"});
+        res.json({success:false,message:"Error in creating stripe session"});
     }
 }
  
