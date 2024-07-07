@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // Placing user order for frontend 
 const placeOrder = async (req,res)=>{
 
-    const frontend_url = "http://localhost:5173";
+    const frontend_url = "https://zestyy.netlify.app";
     
     try{
         const newOrder = new orderModel({
@@ -70,7 +70,7 @@ const verifyOrder = async (req,res)=>{
         }
     }catch(error){
         console.log(error);
-        res.json({success:false.valueOf,message:"Error"})
+        res.json({success:false.valueOf,message:"Error in verifyOrder in orderController"})
     } 
 }
 
@@ -83,7 +83,7 @@ const userOrders = async(req,res)=>{
         res.json({success:true,data:orders})
     }catch(error){
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({success:false,message:"Error in userOrders in orderController"})
     }
 }
 
@@ -105,7 +105,7 @@ const updateStatus = async (req,res)=>{
         res.json({success:true,message:"Status Updated"})
     }catch(error){
         console.log(error);
-        res.json({success:false,message:"Error in updating Status in Database"})
+        res.json({success:false,message:"Error in updateStatus in Database/orderController"})
     }
 }
 

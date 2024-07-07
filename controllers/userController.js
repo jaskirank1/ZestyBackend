@@ -24,7 +24,7 @@ const loginUser = async (req,res)=>{
         res.json({success:true,token})
     }catch(error){
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({success:false,message:"Error in loginUser in userController"})
     }
 }
 
@@ -68,7 +68,7 @@ const registerUser = async (req,res)=>{
         res.json({success:true,token})
     }catch(error){
         console.log(error);
-        res.json({success:false,message:"Error"});
+        res.json({success:false,message:"Error in registerUser in userController"});
     }
 }
 
